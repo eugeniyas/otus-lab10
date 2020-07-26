@@ -1,0 +1,306 @@
+{
+	"id": "b87b64b2-bb55-439b-9842-9f7c2f458ff1",
+	"name": "Direction (Saga)",
+	"description": "",
+	"auth": null,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7aceb80b-4fa5-4dae-b90f-72380e2a4d8d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "09224dcc-df17-41bc-a7f2-b2180d574591",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [
+		{
+			"key": "baseUrl",
+			"value": "arch.homework",
+			"disabled": false
+		},
+		{
+			"key": "personCardId",
+			"value": "",
+			"disabled": false
+		}
+	],
+	"order": [
+		"95fc7032-9dbd-4be2-807a-e735167270ef",
+		"54adbea4-a5db-4811-a920-f872512c441d",
+		"6b3c226d-ef5e-4d02-99ca-c37310d8976d",
+		"89bb8b8f-ebae-470f-8a6c-ae349a3bcaa3",
+		"9fbe5db9-f11b-4692-a786-bf91daeea72f",
+		"095ae3e1-3992-4d55-9e99-74582f2d5dd0",
+		"e7c553d0-85d5-4106-bcbb-bb2a25d9b4aa",
+		"50d83eda-9b2d-45a0-b5f1-123191b8440b",
+		"c8ed57ee-0509-4afe-ac08-026d589bbbdb"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": {},
+	"folders": [],
+	"requests": [
+		{
+			"id": "095ae3e1-3992-4d55-9e99-74582f2d5dd0",
+			"name": "Создание направления на донацию (3)",
+			"url": "http://{{baseUrl}}/api/Direction",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\"DonorId\":{{personCardId}}}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "50d83eda-9b2d-45a0-b5f1-123191b8440b",
+			"name": "Создание направления на донацию (4)",
+			"url": "http://{{baseUrl}}/api/Direction",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\"DonorId\":{{personCardId}}}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "54adbea4-a5db-4811-a920-f872512c441d",
+			"name": "Создание направления на донацию (1)",
+			"url": "http://{{baseUrl}}/api/Direction",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\"DonorId\":{{personCardId}}}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "6b3c226d-ef5e-4d02-99ca-c37310d8976d",
+			"name": "Создание карты пациента (2)",
+			"url": "http://{{baseUrl}}/api/PersonCard",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a4dc16fc-06d6-4e73-aced-2e053512febd",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)\r",
+							"pm.collectionVariables.set(\"personCardId\", responseJSON[\"id\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\"LastName\":\"Иванов\",\"FirstName\":\"Иван\",\"MiddleName\":\"Иванович\",\"BirthDate\":\"1980-01-01\",\"Gender\":1, \"RegAddress\":\"г.Москва, ул.Солнечная, д.1\", \"IdentityDoc\":{\"DocType\":1, \"Serie\":\"4856\", \"Number\":\"394856\"}, \"IdempotencyKey\":\"2D6F59C9-6A53-42D6-8ADD-76E44F746153\"}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "89bb8b8f-ebae-470f-8a6c-ae349a3bcaa3",
+			"name": "Создание направления на донацию (2)",
+			"url": "http://{{baseUrl}}/api/Direction",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\"DonorId\":{{personCardId}}}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "95fc7032-9dbd-4be2-807a-e735167270ef",
+			"name": "Создание карты пациента (1)",
+			"url": "http://{{baseUrl}}/api/PersonCard",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c666902-3ab5-434f-a6af-106aea09d07f",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)\r",
+							"pm.collectionVariables.set(\"personCardId\", responseJSON[\"id\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\"LastName\":\"Иванов\",\"FirstName\":\"Иван\",\"MiddleName\":\"Иванович\",\"BirthDate\":\"1980-01-01\",\"Gender\":1, \"RegAddress\":\"г.Москва, ул.Солнечная, д.1\", \"IdentityDoc\":{\"DocType\":1, \"Serie\":\"4856\", \"Number\":\"394856\"}, \"IdempotencyKey\":\"1D6F59C9-6A53-42D6-8ADD-76E44F746153\"}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "9fbe5db9-f11b-4692-a786-bf91daeea72f",
+			"name": "Создание карты пациента (3)",
+			"url": "http://{{baseUrl}}/api/PersonCard",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0b5adbe-ce17-49cb-9cdd-9371683a72ad",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)\r",
+							"pm.collectionVariables.set(\"personCardId\", responseJSON[\"id\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\"LastName\":\"Иванов\",\"FirstName\":\"Иван\",\"MiddleName\":\"Иванович\",\"BirthDate\":\"1980-01-01\",\"Gender\":1, \"RegAddress\":\"г.Москва, ул.Солнечная, д.1\", \"IdentityDoc\":{\"DocType\":1, \"Serie\":\"4856\", \"Number\":\"394856\"}, \"IdempotencyKey\":\"3D6F59C9-6A53-42D6-8ADD-76E44F746153\"}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "c8ed57ee-0509-4afe-ac08-026d589bbbdb",
+			"name": "Текущие направления",
+			"url": "http://{{baseUrl}}/api/Direction",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "e7c553d0-85d5-4106-bcbb-bb2a25d9b4aa",
+			"name": "Создание карты пациента (4)",
+			"url": "http://{{baseUrl}}/api/PersonCard",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0073b478-0a73-4ddb-abe6-4e570a692b2a",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)\r",
+							"pm.collectionVariables.set(\"personCardId\", responseJSON[\"id\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\"LastName\":\"Иванов\",\"FirstName\":\"Иван\",\"MiddleName\":\"Иванович\",\"BirthDate\":\"1980-01-01\",\"Gender\":1, \"RegAddress\":\"г.Москва, ул.Солнечная, д.1\", \"IdentityDoc\":{\"DocType\":1, \"Serie\":\"4856\", \"Number\":\"394856\"}, \"IdempotencyKey\":\"4D6F59C9-6A53-42D6-8ADD-76E44F746153\"}",
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}

@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: saga-direction
+  labels:
+    app: saga-direction
+spec:
+  template:
+    metadata:
+      name: saga-direction
+      labels:
+        app: saga-direction
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: saga-direction
+        image: eugeniyas/otusarchsrvregistrationagent:v1
+        env:
+          - name: REGISTRATION_HOST
+            value: "registration:9000"
+          - name: HEMATOLOGY_HOST
+            value: "hematology:9000"
+          - name: EXAMINATION_HOST
+            value: "examination:9000"
+          - name: OPERATION_HOST
+            value: "operation:9000"
+  backoffLimit: 3
